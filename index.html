@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Supplemental e-Construction tools that simplify Engineer and Inspector tasks and create files that can be shared with existing DOT e-Construction platforms.">
+<title>e-Construction Supplemental Tools</title>
+<style>
+:root{
+  --navy:#16324a;
+  --navy2:#0d2233;
+  --green:#3f8f5b;
+  --green-soft:#eef8ee;
+  --pink:#b85d78;
+  --pink-soft:#fdf0f5;
+  --gold:#e1a33c;
+  --bg:#f5f8fa;
+  --line:#d9e1e7;
+  --muted:#667583;
+  --white:#fff;
+  --shadow:0 18px 45px rgba(13,34,51,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+  color:var(--navy2);
+  background:
+    radial-gradient(circle at 8% 0%,rgba(184,93,120,.08),transparent 24%),
+    radial-gradient(circle at 92% 0%,rgba(63,143,91,.09),transparent 28%),
+    var(--bg);
+}
+a{text-decoration:none;color:inherit}
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,var(--navy2),var(--navy));
+  color:var(--white);
+}
+.hero:before,.hero:after{
+  content:"";
+  position:absolute;
+  border-radius:999px;
+  background:rgba(255,255,255,.045);
+}
+.hero:before{width:420px;height:420px;right:-150px;top:-180px}
+.hero:after{width:260px;height:260px;left:-110px;bottom:-170px}
+.hero-inner,.content,.footer-inner{
+  width:min(1160px,calc(100% - 48px));
+  margin:0 auto;
+}
+.hero-inner{padding:76px 0 70px;position:relative;z-index:1}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  text-transform:uppercase;letter-spacing:.15em;
+  font-weight:700;font-size:12px;color:#d6e3eb;
+}
+.eyebrow:before{content:"";width:30px;height:2px;background:var(--gold)}
+h1{
+  margin:16px 0 0;
+  font-size:clamp(40px,6vw,68px);
+  line-height:1.02;
+  letter-spacing:-.035em;
+}
+.hero-copy{
+  max-width:720px;
+  margin:20px 0 0;
+  font-size:18px;
+  line-height:1.65;
+  color:#d6e2ea;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.button{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:46px;padding:0 20px;border-radius:10px;
+  font-weight:700;border:1px solid rgba(255,255,255,.2);
+  transition:.2s ease;
+}
+.button.primary{background:#fff;color:var(--navy2);border-color:#fff}
+.button.secondary{background:rgba(255,255,255,.07);color:#fff}
+.button:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.15)}
+.content{padding:46px 0 74px}
+.heading{margin-bottom:22px}
+.heading h2{margin:0;font-size:29px}
+.heading p{margin:8px 0 0;color:var(--muted);line-height:1.55}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+}
+.card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:24px;
+  min-height:315px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:var(--shadow);
+  transition:.2s ease;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(13,34,51,.14)}
+.icon{
+  width:56px;height:56px;border-radius:15px;
+  display:grid;place-items:center;font-size:26px;
+  margin-bottom:18px;
+}
+.green .icon{background:var(--green-soft)}
+.pink .icon{background:var(--pink-soft)}
+.gray .icon{background:#eef2f5}
+.card h3{margin:0 0 10px;font-size:22px}
+.card p{margin:0;color:var(--muted);line-height:1.62;flex:1}
+.meta{
+  margin-top:18px;padding-top:14px;
+  border-top:1px solid var(--line);
+  color:var(--muted);font-size:12px
+}
+.card-link{
+  margin-top:16px;min-height:44px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:10px;background:var(--navy);color:#fff;
+  font-weight:700;transition:.2s ease
+}
+.card-link:hover{background:var(--navy2)}
+.future .card-link{background:#eef2f5;color:var(--navy)}
+.info{
+  margin-top:24px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px 22px;
+  display:flex;gap:14px;align-items:flex-start;
+  background:linear-gradient(135deg,var(--green-soft),var(--pink-soft));
+}
+.info strong{display:block;margin-bottom:4px}
+.info span{color:var(--muted);font-size:14px;line-height:1.5}
+footer{background:#fff;border-top:1px solid var(--line)}
+.footer-inner{
+  padding:22px 0;
+  display:flex;justify-content:space-between;gap:16px;
+  color:var(--muted);font-size:13px
+}
+@media(max-width:900px){
+  .cards{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .hero-inner,.content,.footer-inner{width:min(100% - 32px,1160px)}
+  .hero-inner{padding-top:54px;padding-bottom:50px}
+  .hero-copy{font-size:16px}
+  .footer-inner{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Supplemental e-Construction Tools</div>
+    <h1>e-Construction Forms</h1>
+    <p class="hero-copy">
+      Practical browser-based tools that work alongside the DOT's existing e-Construction platforms,
+      simplifying field documentation, calculations, reporting, and construction administration.
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" href="#forms">View Forms</a>
+      <a class="button secondary" href="force_account.html">Open Force Account</a>
+    </div>
+  </div>
+</header>
+
+<main class="content" id="forms">
+  <section class="heading">
+    <h2>Supplemental Tools</h2>
+    <p>These tools supplement—not replace—the DOT's existing e-Construction systems. Files and records created here can be shared with existing platforms such as Headlight, Autodesk Forma, and HaulHub.</p>
+  </section>
+
+  <section class="cards">
+    <article class="card green">
+      <div class="icon">📋</div>
+      <h3>Daily Force Account</h3>
+      <p>
+        Detailed daily Force Account reporting for a Pay Item performed over
+        multiple dates, including labor, fringe benefits, materials, equipment,
+        subcontractors, data files, attachments, and printable PDF output.
+      </p>
+      <div class="meta">Completed supplemental tool</div>
+      <a class="card-link" href="force_account.html">Open Form&nbsp; →</a>
+    </article>
+
+    <article class="card pink">
+      <div class="icon">📊</div>
+      <h3>Force Account Tracking</h3>
+      <p>
+        Track multiple Force Account Pay Items across multiple project sites
+        and dates, giving Engineers and Inspectors a consolidated view of
+        Contractor Force Account work.
+      </p>
+      <div class="meta">In development</div>
+      <a class="card-link" href="#forms">In Development</a>
+    </article>
+
+    <article class="card gray future">
+      <div class="icon">🧰</div>
+      <h3>Field Tools</h3>
+      <p>
+        Browser-based utilities for construction field calculations, records,
+        quantities, and other day-to-day documentation needs.
+      </p>
+      <div class="meta">Additional tools</div>
+      <a class="card-link" href="#forms">Coming Soon</a>
+    </article>
+  </section>
+
+  <div class="info">
+    <div style="font-size:24px">💡</div>
+    <div>
+      <strong>Designed to work alongside existing DOT systems</strong>
+      <span>
+        These supplemental tools are not intended to replace existing
+        e-Construction platforms such as Headlight, Autodesk Forma, or HaulHub.
+        They simplify routine Engineer and Inspector tasks and create organized
+        files and records that can be shared with those existing platforms.
+      </span>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>Supplemental e-Construction Tools</span>
+    <span>Tools for Engineers, Inspectors, and construction administration</span>
+  </div>
+</footer>
+</body>
+</html>
